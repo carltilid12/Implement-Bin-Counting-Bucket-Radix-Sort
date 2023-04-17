@@ -11,11 +11,12 @@ Do these algorithms really run at O(n) time?  Submit your source code and excel 
 #include <cmath>
 #include <algorithm>
 #include <time.h>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 int main(){
     srand(time(0));
-
     //Initialize size and the array
     clock_t time_req;
     int sizearr = 20;
@@ -25,15 +26,10 @@ int main(){
     int num = 0;
 
     //Making a non duplicating array
-    while(i < sizearr){
-        num = rand() % sizearr;
-        //Check for duplicates by using another array to check the dupe
-        if(bin[num] != 1){
-            bin[num] = 1;
-            arr[i++] = num;
-        }
-
+    for(i=0; i<sizearr; i++){
+        arr[i] = i;
     }
+    random_shuffle(&arr[0], &arr[sizearr]);
     //Display Array and reusing the Bin by assigning Bin to zero
     for(i=0; i<sizearr; i++){
         cout << arr[i] << " ";
